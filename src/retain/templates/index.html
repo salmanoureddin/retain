@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="today">
+  <p class="due-number">{{ due_count }}</p>
+  <p class="due-label">{{ "card" if due_count == 1 else "cards" }} due today</p>
+</section>
+
+<section>
+  <h2>Decks</h2>
+  {% if decks %}
+    <ul class="deck-list">
+      {% for deck in decks %}<li>{{ deck.name }}</li>{% endfor %}
+    </ul>
+  {% else %}
+    <p class="empty">No decks yet. Create your first deck to start adding cards.</p>
+  {% endif %}
+</section>
+{% endblock %}
